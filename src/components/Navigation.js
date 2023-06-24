@@ -1,10 +1,11 @@
 import {Link, Route, Routes} from 'react-router-dom';
+import NavMenu from "./NavMenu";
 
 function Navigation() {
     return <>
         <div className={'navigation'}>
-            <Link className={'nav-link'} to={'/'}><img src={'home_icon.svg'} alt={'Home icon'} width={20} /></Link>
-            <Link className={"nav-link"} to={'/chat'}>Chat</Link>
+            <Link to={'/'}><img src={'home_icon.svg'} alt={'Home icon'} width={30}/></Link>
+            <NavMenu/>
         </div>
     </>
 }
