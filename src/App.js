@@ -1,61 +1,21 @@
 import './App.css';
-import {Routes, Route, Link} from 'react-router-dom';
+import mainLogo from './media/PP_1094x1177.png';
+import Navigation from "./components/Navigation";
+import {Link, Route, Routes} from "react-router-dom";
+import Chat from "./components/Chat";
+import Home from "./components/Home";
 
 function App() {
-    return (
-        <div className={'container'}>
+    return (<>
+        <div className={'nav-bar'}>
+            <Link className={'nav-link'} to={'/'}><img src={mainLogo} width={50} height={50} alt={"My icon"} className={"my-icon"}/></Link>
             <Navigation/>
-            <Routes>
-                <Route path="home" element={<Home/>}/>
-                <Route path="users" element={<School/>}/>
-                <Route path="hobbies" element={<Hobbies/>}/>
-            </Routes>
-            <Credits/>
         </div>
-    );
-}
-
-const Navigation = () => {
-    return (
-        <div className={'navigation'}>
-            <Link className={'link1'} to={'/home'}>Home</Link>
-            <Link className={'link1'} to={'/users'}>School</Link>
-            <Link className={'link1'} to={'/hobbies'}>Hobbies</Link>
-        </div>
-    )
-}
-
-const Home = () => {
-    return (
-        <div>
-            <h1 className={'title'}>Home</h1>
-        </div>
-    )
-}
-
-const School = () => {
-    return (
-        <div>
-            <h1 className={'title'}>School</h1>
-        </div>
-    )
-}
-
-const Hobbies = () => {
-    return (
-        <div>
-            <h1 className={'title'}>Hobbies</h1>
-        </div>
-    )
-}
-
-const Credits = () => {
-    return (
-        <div className={'credits'}>
-            Icon by:
-            <a className={'link2'} href="https://icons8.com/">icons8</a>
-        </div>
-    )
+        <Routes>
+            <Route path={""} element={<Home />}/>
+            <Route path={"chat"} element={<Chat />} />
+        </Routes>
+    </>);
 }
 
 export default App;
