@@ -1,5 +1,4 @@
 import {Link, Route, Routes} from 'react-router-dom';
-import mainLogo from "../media/PP_1094x1177.png";
 
 function Navigation() {
     return <>

@@ -1,5 +1,4 @@
 import './App.css';
-import mainLogo from './media/PP_1094x1177.png';
 import Navigation from "./components/Navigation";
 import {Link, Route, Routes} from "react-router-dom";
 import Chat from "./components/Chat";
@@ -8,7 +7,7 @@ import Home from "./components/Home";
 function App() {
     return (<>
         <div className={'nav-bar'}>
-            <Link className={'nav-link'} to={'/'}><img src={mainLogo} width={50} height={50} alt={"My icon"} className={"my-icon"}/></Link>
+            <Link className={'nav-link'} to={'/'}><img src={'PP_1094x1177.png'} width={50} height={50} alt={"My icon"} className={"my-icon"}/></Link>
             <Navigation/>
         </div>
         <Routes>
