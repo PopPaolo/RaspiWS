@@ -1,7 +1,5 @@
 .body {
     padding: 0;
-    background-color: #1f2b44;
-
     font-size: 20pt;
 }
 
@@ -9,8 +7,6 @@
     display: flex;
     padding: 1em;
     background-color: #136f63;
-    background-blend-mode: multiply;
-    /*opacity: 0.7;*/
     justify-content: space-between;
     height: 3rem;
 }
@@ -25,7 +21,30 @@
     padding-left: 1.5em;
 }
 
-.menu-link {
-    text-decoration: none;
+.main-intro-container {
+    display: flex;
+}
 
+.main-intro-pic{
+    margin: 1rem;
+    border: black groove 5vh;
+    border-radius: 90pt;
+}
+
+.main-intro{
+    padding-top: 3em;
+    padding-left: 1em;
+    width: 25em;
+    word-wrap: normal;
+}
+
+#hello{
+    display: block;
+    font-size: 2rem;
+}
+
+.rit-link{
+    display: inline;
+    text-decoration: none;
+    color: #f56800;
 }
