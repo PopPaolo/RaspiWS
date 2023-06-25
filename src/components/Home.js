@@ -1,7 +1,7 @@
 function Home() {
     return <>
         <div className={'main-intro-container'}>
-            <img className={'main-intro-pic'} src={'media/Headshot_1.png'} alt={"Headshot 1"} height={200}/>
+            <img className={'main-intro-pic'} src={'media/Headshot_1.png'} alt={"Headshot 1"}/>
             <Intro/>
         </div>
     </>

@@ -27,14 +27,15 @@
 
 .main-intro-pic{
     margin: 1rem;
-    border: black groove 5vh;
-    border-radius: 90pt;
+    border: black groove 3vh;
+    width: 20vw;
+    border-radius: 7vw;
 }
 
 .main-intro{
     padding-top: 3em;
     padding-left: 1em;
-    width: 25em;
+    width: 70vw;
     word-wrap: normal;
 }
 
