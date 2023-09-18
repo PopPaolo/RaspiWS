@@ -1,51 +1,17 @@
 .body {
-    padding: 0;
-    font-size: 20pt;
+  padding: 0;
+  font-size: 20pt;
 }
 
-.nav-bar {
-    display: flex;
-    padding: 1em;
-    background-color: #136f63;
-    justify-content: space-between;
-    height: 3rem;
+.main-intro {
+  padding-top: 3em;
+  padding-left: 1em;
+  width: 70vw;
+  word-wrap: normal;
 }
 
-.navigation {
-    display: flex;
-    align-items: baseline;
-}
-
-.menu {
-    list-style: none;
-    padding-left: 1.5em;
-}
-
-.main-intro-container {
-    display: flex;
-}
-
-.main-intro-pic{
-    margin: 1rem;
-    border: black groove 3vh;
-    width: 20vw;
-    border-radius: 7vw;
-}
-
-.main-intro{
-    padding-top: 3em;
-    padding-left: 1em;
-    width: 70vw;
-    word-wrap: normal;
-}
-
-#hello{
-    display: block;
-    font-size: 2rem;
-}
-
-.rit-link{
-    display: inline;
-    text-decoration: none;
-    color: #f56800;
+.rit-link {
+  display: inline;
+  text-decoration: none;
+  color: #f56800;
 }
