@@ -5,8 +5,10 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import NavBar from "./components/NavBar";
 import { Container } from "@mui/material";
+import AcademicBackground from "./components/AcademicBackground";
+import Background from "./components/Background";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Container>
         <Routes>
           <Route path={""} element={<Home />} />
+          <Route path={"AcademicBackground"} element={<AcademicBackground />} />
+          <Route path={"Background"} element={<Background />} />
         </Routes>
       </Container>
     </>

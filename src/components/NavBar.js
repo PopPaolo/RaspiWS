@@ -4,9 +4,9 @@
  */
 
 import { Link } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
-import SchoolIcon from "@mui/icons-material/School";
+import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
 import { Avatar, Box } from "@mui/material";
+import Background from "./Background";
 
 function NavBar() {
   return (
@@ -16,8 +16,9 @@ function NavBar() {
         padding: "1em",
         bgcolor: "#105348",
         justifyContent: "space-between",
+        alignItems: "center",
         height: "3rem",
-        borderBottom: "black solid 2rem",
+        borderBottom: "black solid 1rem",
       }}
     >
       <Link to={"/"}>
@@ -33,12 +34,16 @@ function NavBar() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          margin: "1rem",
+          gap: "15%",
         }}
       >
         <Link to={"AcademicBackground"}>
-          <SchoolIcon color={"secondary"} sx={{ fontSize: 50, m: "20pt" }} />
+          <HistoryEduIcon color={"secondary"} sx={{ fontSize: 50 }} />
         </Link>
-        <Avatar alt={"Paolo Pop"} src={"/media/Headshot_1.png"} />
+        <Link to={"Background"}>
+          <Avatar alt={"Paolo Pop"} src={"/media/Headshot_1.png"} />
+        </Link>
       </Box>
     </Box>
   );
