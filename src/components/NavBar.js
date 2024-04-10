@@ -4,9 +4,9 @@
  */
 
 import { Link } from "react-router-dom";
-import HistoryEduIcon from "@mui/icons-material/HistoryEdu";
+import LanguageIcon from "@mui/icons-material/Language";
 import { Avatar, Box } from "@mui/material";
-import Background from "./Background";
+import "./Conjugator/Conjugator";
 
 function NavBar() {
   return (
@@ -14,7 +14,7 @@ function NavBar() {
       sx={{
         display: "flex",
         padding: "1em",
-        bgcolor: "#105348",
+        bgcolor: "#007777",
         justifyContent: "space-between",
         alignItems: "center",
         height: "3rem",
@@ -38,8 +38,8 @@ function NavBar() {
           gap: "15%",
         }}
       >
-        <Link to={"AcademicBackground"}>
-          <HistoryEduIcon color={"secondary"} sx={{ fontSize: 50 }} />
+        <Link to={"Conjugator"}>
+          <LanguageIcon color={"secondary"} sx={{ fontSize: 50 }} />
         </Link>
         <Link to={"Background"}>
           <Avatar alt={"Paolo Pop"} src={"/media/Headshot_1.png"} />
