@@ -14,7 +14,7 @@ function Conjugator() {
     useEffect(() => {
         const persons = ['1', '2', '3', '1', '2', '3'];
         const numbers = ['S', 'S', 'S', 'P', 'P', 'P'];
-        const labels = ['io', 'tu', 'lui/lei', 'noi', 'voi', 'loro'];
+        const labels = ['Io', 'Tu', 'Lui/Lei', 'Noi', 'Voi', 'Loro'];
         let newConjugation = [];
 
         try {
