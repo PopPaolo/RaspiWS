@@ -1,17 +1,28 @@
-import './App.css';
-import {Route, Routes} from "react-router-dom";
-import Chat from "./components/Chat";
+/*
+    This is the file that defines the highest level of the React app.
+    @author Paolo Pop
+ */
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import { Container } from "@mui/material";
 import NavBar from "./components/NavBar";
+import Conjugator from "./components/Conjugator/Conjugator";
+import Card from './components/Card'
+import VerbsPage from "./components/VerbsPage";
 
 function App() {
-    return (<>
-        <NavBar/>
+  return (
+    <div className="background">
+      <NavBar />
+      <Container>
         <Routes>
-            <Route path={""} element={<Home />}/>
-            <Route path={"chat"} element={<Chat />} />
+          <Route path={""} element={<Home />} />
+          <Route path={"Conjugator"} element={<VerbsPage/>} />
         </Routes>
-    </>);
+      </Container>
+    </div>
+  );
 }
 
 export default App;
