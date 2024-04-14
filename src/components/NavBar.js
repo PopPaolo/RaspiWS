@@ -14,11 +14,10 @@ function NavBar() {
       sx={{
         display: "flex",
         padding: "1em",
-        bgcolor: "#007777",
+        background: "linear-gradient(to bottom, #007777, transparent)",
         justifyContent: "space-between",
-        alignItems: "center",
-        height: "3rem",
-        borderBottom: "black solid 1rem",
+        alignItem: "center",
+        height: "5rem"
       }}
     >
       <Link to={"/"}>
@@ -41,7 +40,7 @@ function NavBar() {
         <Link to={"Conjugator"}>
           <LanguageIcon color={"secondary"} sx={{ fontSize: 50 }} />
         </Link>
-        <Link to={"Background"}>
+        <Link to={"/"}>
           <Avatar alt={"Paolo Pop"} src={"/media/Headshot_1.png"} />
         </Link>
       </Box>

@@ -3,7 +3,7 @@ import React from 'react';
 function ConjugationTable({ verb, conjugation }) {
     return (
         <div style={{ width: '50', userSelect: "none"}}>
-            <h4>Present Tense Conjugation for "{verb}"</h4>
+            <h4  style={{color: "#dddddd"}}>Present Tense Conjugation for "{verb}"</h4>
             <div className="table-responsive">
                 <table className="table table-striped">
                     <thead>

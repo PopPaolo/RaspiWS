@@ -3,15 +3,9 @@
   font-size: 20pt;
 }
 
-.main-intro {
-  padding-top: 3em;
-  padding-left: 1em;
-  width: 70vw;
-  word-wrap: normal;
-}
-
-.rit-link {
-  display: inline;
-  text-decoration: none;
-  color: #f56800;
+.background {
+  background-image: url(media/UofR_Tower.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 200vh;
 }

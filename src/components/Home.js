@@ -1,34 +1,49 @@
-/*
-    This is the file that defines the Home page and its components.
-    @author Paolo Pop
- */
-import { Typography } from "@mui/material";
+import { Typography, styled } from "@mui/material";
+
+const Title = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  fontSize: '2.5rem',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  margin: theme.spacing(2),
+  textShadow: '1px 1px 3px #aaa',
+}));
+
+const IntroParagraph = styled(Typography)(({ theme }) => ({
+  color: theme.palette.secondary.dark,
+  fontSize: '1.2rem',
+  textAlign: 'left',
+  margin: theme.spacing(2.8),
+  textShadow: '1px 1px 2px #888'
+}));
 
 function Home() {
   return (
     <>
-      <Typography variant={"h1"} my={"0.5em"}>
+      <Title variant="h1">
         This is the Home Page
-      </Typography>
-      <Typography variant={"h2"}>
-        <span id={"hello"}>Hello,</span>
-        My name is Paolo Pop and I am a Software Engineering student at
-        <a className={"rit-link"} href={"https://www.rit.edu"}>
-          {" "}
-          RIT
+      </Title>
+      <IntroParagraph variant="body1">
+        Hello, my name is Paolo Pop and I am a Software Engineering student at 
+        <a
+          style={{
+            display: "inline",
+            textDecoration: "none",
+            color: '#f56800'
+          }}
+          href={"https://www.rit.edu"}>
+          {" "}RIT{" "}
         </a>
-        .{" "}
-      </Typography>{" "}
-      <Typography variant={"h3"}>
         I have a strong passion for software development and have been driven
-        toward making a career out of it since I was young. Some of the
-        technologies I have worked with include Ruby with the help of Capybara
+        toward making a career out of it since I was young. 
+        Some of the technologies I have worked with include Ruby with the help of Capybara
         and Selenium Webdriver to automate system tests, JS with jQuery for
         front end components, and a .NET based web application in C#, HTML and
-        SQL for DB. I am looking to make connections with other developers and
+        SQL for DB. 
+        I am looking to make connections with other developers and
         expand my knowledge in order to grow within the discipline and better
         myself professionally.
-      </Typography>
+      </IntroParagraph>
     </>
   );
 }

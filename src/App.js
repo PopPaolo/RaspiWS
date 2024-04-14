@@ -6,24 +6,21 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import { Container } from "@mui/material";
-import AcademicBackground from "./components/AcademicBackground";
-import Background from "./components/Background";
 import NavBar from "./components/NavBar";
-import Conjugator from "./components/Conjugator/Conjugator"; 
+import Conjugator from "./components/Conjugator/Conjugator";
+import Card from './components/Card'
 
 function App() {
   return (
-    <>
+    <div className="background">
       <NavBar />
       <Container>
         <Routes>
           <Route path={""} element={<Home />} />
-          <Route path={"AcademicBackground"} element={<AcademicBackground />} />
-          <Route path={"Conjugator"} element={<Conjugator/>} />
-          <Route path={"Background"} element={<Background />} />
+          <Route path={"Conjugator"} element={<Card element={<Conjugator />} />} />
         </Routes>
       </Container>
-    </>
+    </div>
   );
 }
 
