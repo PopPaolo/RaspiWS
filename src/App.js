@@ -9,6 +9,7 @@ import { Container } from "@mui/material";
 import NavBar from "./components/NavBar";
 import Conjugator from "./components/Conjugator/Conjugator";
 import Card from './components/Card'
+import VerbsPage from "./components/VerbsPage";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Container>
         <Routes>
           <Route path={""} element={<Home />} />
-          <Route path={"Conjugator"} element={<Card element={<Conjugator />} cardTitle={"Coniuga Verbi:"} />} />
+          <Route path={"Conjugator"} element={<VerbsPage/>} />
         </Routes>
       </Container>
     </div>
