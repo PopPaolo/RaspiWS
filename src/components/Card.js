@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardActions, Button } from '@mui/material';
+import { Card, CardContent, CardActions, Button, Typography, styled } from '@mui/material';
 
-const FlippableCard = ({ element }) => {
+const CardTitle = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  fontSize: '2.5rem',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  margin: theme.spacing(2),
+  textShadow: '1px 1px 3px #aaa',
+}));
+
+const FlippableCard = ({ element, cardTitle }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => {
@@ -17,9 +26,15 @@ const FlippableCard = ({ element }) => {
         flexDirection: 'column',
         alignItems: 'center',
         width: 'fit-content',
-        height: 'fitcontent'
+        height: 'fitcontent',
+        userSelect: 'none',
+        px: '10pt',
+        py: '5pt'
       }}>
       <CardContent>
+        <CardTitle variant="h1">
+          {cardTitle}
+        </CardTitle>
         {element}
       </CardContent>
       <CardActions>
