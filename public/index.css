@@ -1,7 +1,6 @@
 body {
-  background: rgb(37, 46, 89);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background: rgb(37, 46, 89) no-repeat center;
+  overflow: hidden;
+  height: 100vh;
 }
-
