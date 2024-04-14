@@ -56,7 +56,6 @@ function Conjugator() {
     return (
         <div className="container">
             <ConjugationForm input={input} setInput={setInput} updateVerb={updateVerb} error={error} />
-            <h4  style={{color: "#dddddd"}}>Indicativo Presente di "{verb}"</h4>
             <ConjugationTable verb={verb} conjugation={conjugation} />
         </div>
     );
