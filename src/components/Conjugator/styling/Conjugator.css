@@ -2,11 +2,17 @@
   background-color: #fff;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 5px rgba(200, 200, 200, 0.4);
+  padding: 4px;
+}
+
+.table th[colspan="2"] {
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
 }
 
 .table th {
-  background-color: #007777;
+  background-color: #f56800;
   color: #fff;
 }
 
