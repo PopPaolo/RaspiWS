@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ConjugationTable({ verb, conjugation }) {
+function ConjugationTable({ conjugation }) {
     return (
         <div style={{ width: '50', userSelect: "none"}}>
             <div className="table-responsive">
