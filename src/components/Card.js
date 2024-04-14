@@ -47,8 +47,8 @@ const FlippableCard = ({ element, cardTitle }) => {
                 sx={{
                     backgroundColor: "#f56800",
                     color: "#fff",
-                    minWidth: '20px', // Add this
-                    height: '40px', // Add this
+                    minWidth: '20px',
+                    height: '40px',
                     "&:hover": {
                         backgroundColor: "#b64500",
                     },
