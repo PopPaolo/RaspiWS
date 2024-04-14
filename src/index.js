@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createTheme, ThemeProvider } from "@mui/material";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const theme = createTheme({
   palette: {
@@ -15,7 +16,7 @@ const theme = createTheme({
       main: "#FFFFFF",
     },
     tertiary: {
-      main: "#105348",
+      main: "#f56800",
     },
   },
   typography: {
