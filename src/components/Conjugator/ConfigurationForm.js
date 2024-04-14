@@ -1,24 +1,51 @@
 import React from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import { TextField, Button, styled } from '@mui/material';
 import ArrowOutward from '@mui/icons-material/ArrowOutward';
+
+const StyledTextField = styled(({ labelColor, ...other }) => (
+    <TextField
+      {...other}
+      InputLabelProps={{
+        style: { color: labelColor },
+      }}
+    />
+  ))({
+    // '& label.Mui-focused': {
+    //   color: '#ffffff', // Set label text color to white when focused
+    // },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#bbb', // Set underline color to white when focused
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#bbb', // Set border color to white
+      },
+      '&:hover fieldset': {
+        borderColor: '#fff', // Set border color to white when hovered
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#bbb', // Keep border color white when focused
+      },
+      '&.Mui-focused:hover fieldset': {
+        borderColor: '#fff', // Keep border color white when focused and hovered
+      },
+    },
+    '& .MuiInputBase-input': {
+      color: '#bbb', // Set input text color to white
+    },
+  });
+  
+
 
 function ConjugationForm({ input, setInput, updateVerb, error }) {
     return (
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px'}}>
-            <TextField
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <StyledTextField
                 label="Enter Verb"
-                variant="filled"
+                labelColor="#ddd"
+                variant="outlined"
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                InputProps={{
-                    style: { color: '#dddddd' }, // Set text color to white
-                }}
-                InputLabelProps={{
-                    style: {
-                        color: error ? 'red' : '#ffffff', // Set label text color to red in error mode
-                    },
-                }}
                 error={Boolean(error)} // Show error state
                 helperText={error} // Display error message
             />
