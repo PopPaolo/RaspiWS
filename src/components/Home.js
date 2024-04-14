@@ -2,11 +2,11 @@ import { Typography, styled } from "@mui/material";
 
 const Title = styled(Typography)(({ theme }) => ({
   color: theme.palette.primary.main,
-  fontSize: '2.5rem',
+  fontSize: '3.5rem',
   fontWeight: 'bold',
   textAlign: 'center',
   margin: theme.spacing(2),
-  textShadow: '1px 1px 3px #aaa',
+  textShadow: '1px 1px 2px #f56800',
 }));
 
 const IntroParagraph = styled(Typography)(({ theme }) => ({
@@ -19,7 +19,7 @@ const IntroParagraph = styled(Typography)(({ theme }) => ({
 
 function Home() {
   return (
-    <>
+    <div style={{ marginTop: '3rem' }}>
       <Title variant="h1">
         This is the Home Page
       </Title>
@@ -44,7 +44,7 @@ function Home() {
         expand my knowledge in order to grow within the discipline and better
         myself professionally.
       </IntroParagraph>
-    </>
+    </div>
   );
 }
 
