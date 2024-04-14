@@ -48,15 +48,15 @@ function Conjugator() {
             setError(null);
             setVerb(input.toLowerCase());
         } catch (err) {
-            setError('Invalid verb. Please enter a valid Italian verb.');
+            setError('Invalid verb.');
         }
     }
 
     // Render the Conjugator component
     return (
         <div className="container">
-            <h1 style={{ color: "#ddd" }}>Coniugazione Verbi</h1>
             <ConjugationForm input={input} setInput={setInput} updateVerb={updateVerb} error={error} />
+            <h4  style={{color: "#dddddd"}}>Indicativo Presente di "{verb}"</h4>
             <ConjugationTable verb={verb} conjugation={conjugation} />
         </div>
     );
