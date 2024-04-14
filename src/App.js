@@ -17,7 +17,7 @@ function App() {
       <Container>
         <Routes>
           <Route path={""} element={<Home />} />
-          <Route path={"Conjugator"} element={<Card element={<Conjugator />} />} />
+          <Route path={"Conjugator"} element={<Card element={<Conjugator />} cardTitle={"Coniuga Verbi:"} />} />
         </Routes>
       </Container>
     </div>
