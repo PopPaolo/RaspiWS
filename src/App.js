@@ -4,14 +4,16 @@
  */
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
 import { Container } from "@mui/material";
-import NavBar from "./components/NavBar";
-import Conjugator from "./components/Conjugator/Conjugator";
-import Card from './components/Card'
-import VerbsPage from "./components/VerbsPage";
 
-function App() {
+// Other components
+import NavBar from "./components/NavBar";
+
+// Page components
+import VerbsPage from "./components/VerbsPage";
+import Home from "./components/Home";
+
+function App({theme}) {
   return (
     <div className="background">
       <NavBar />
