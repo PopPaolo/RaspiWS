@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.c99fd062.css",
-    "main.js": "/static/js/main.751e0576.js",
+    "main.css": "/static/css/main.3badf7e6.css",
+    "main.js": "/static/js/main.e44e1744.js",
     "static/js/787.38f1fd14.chunk.js": "/static/js/787.38f1fd14.chunk.js",
     "static/media/UofR_Tower.jpg": "/static/media/UofR_Tower.3e412910a09da136425c.jpg",
     "index.html": "/index.html",
-    "main.c99fd062.css.map": "/static/css/main.c99fd062.css.map",
-    "main.751e0576.js.map": "/static/js/main.751e0576.js.map",
+    "main.3badf7e6.css.map": "/static/css/main.3badf7e6.css.map",
+    "main.e44e1744.js.map": "/static/js/main.e44e1744.js.map",
     "787.38f1fd14.chunk.js.map": "/static/js/787.38f1fd14.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c99fd062.css",
-    "static/js/main.751e0576.js"
+    "static/css/main.3badf7e6.css",
+    "static/js/main.e44e1744.js"
   ]
 }
