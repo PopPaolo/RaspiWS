@@ -1,32 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   CardContent,
-  CardActions,
-  Button,
   Typography,
   styled,
 } from "@mui/material";
-import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 
 const CardTitle = styled(Typography)(({ theme }) => ({
-  color: '#f56800',
+  color: "#f56800",
   fontSize: "2em", // change this
   fontWeight: "bold",
   textAlign: "center",
   margin: theme.spacing(1),
-  textShadow: "1px 1px 2px gold",
+  textShadow: "1px 1px 2px #ffd700",
 }));
 
-const FlippableCard = ({ element, cardTitle }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
+const FlippableCard = ({ element, cardTitle, theme }) => {
 
   return (
+
     <Card
       sx={{
         backgroundColor: "rgba(0,0,0,0.7)",
@@ -35,28 +28,11 @@ const FlippableCard = ({ element, cardTitle }) => {
         "&:hover": {
           transform: "scale(1.05)",
         },
-      }}
-    >
+      }}>
       <CardContent>
-        <CardTitle variant="h1">{cardTitle}</CardTitle>
+        <CardTitle variant="h1" theme={theme}>{cardTitle}</CardTitle>
         {element}
       </CardContent>
-        <CardActions sx={{ justifyContent: 'flex-end' }}>
-            <Button
-                onClick={handleFlip}
-                sx={{
-                    backgroundColor: "#f56800",
-                    color: "#fff",
-                    minWidth: '20px',
-                    height: '40px',
-                    "&:hover": {
-                        backgroundColor: "#b64500",
-                    },
-                }}
-            >
-                <AutorenewIcon/>
-            </Button>
-        </CardActions>
     </Card>
   );
 };
