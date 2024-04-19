@@ -39,22 +39,20 @@ const StyledTextField = styled(({ labelColor, ...other }) => (
 
 function ConjugationForm({ input, setInput, updateVerb, error }) {
     return (
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+        <div className="d-flex justify-content-ceneter align-items-center gap-2">
             <StyledTextField
                 label="Enter Verb"
                 labelColor="#ddd"
                 variant="outlined"
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                error={Boolean(error)} // Show error state
-                helperText={error} // Display error message
+                error={Boolean(error)}
             />
             <Button
                 variant="outlined"
-                color="primary"
+                color="tertiary"
                 startIcon={<ArrowOutward />}
                 onClick={updateVerb}
-                style={{ color: '#ffffff' }} // Set button text color to white
             >Go</Button>
         </div>
     );
