@@ -2,11 +2,16 @@ import { Button } from "@mui/material";
 import React from "react";
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 
-function ConjugationTableForm({ verb, conjugation, handleFlip }) {
+function ConjugationTableForm({ verb, conjugation, handleFlip, inputsRef }) {
+
+    const checkEntry = (e, item) => {
+        return e.target.value.toLowerCase() === item.form.toLowerCase();
+    }
+
     return (
         <div style={{ userSelect: "none" }}>
             <table className="table table-striped border border-3 border-color-black">
-                <thead>
+            <thead>
                     <tr>
                         <th
                             colSpan="2"
@@ -42,9 +47,11 @@ function ConjugationTableForm({ verb, conjugation, handleFlip }) {
                                 <input
                                     type="text"
                                     id={index}
-                                    className="form-control-sm form-control-plaintext"
-                                    value={item.form}
-                                    readonly
+                                    className="form-control-sm"
+                                    color
+                                    // onReset={}
+                                    ref={(e) => inputsRef.current[index] = e}
+                                    onChange={(e) => {checkEntry(e, item) ? e.target.style.color = "green": e.target.style.color = "red"}}
                                 />
                             </td>
                         </tr>
