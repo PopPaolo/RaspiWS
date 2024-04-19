@@ -1,8 +1,12 @@
 // Importing necessary libraries and components
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ConjugationForm from './ConfigurationForm';
 import ConjugationTable from './ConjugationTable';
+import ReactCardFlip from 'react-card-flip';
+import ConjugationTableForm from './ConjugationTableForm';
 import "./styling/Conjugator.css";
+
+
 const italianVerbs = require('italian-verbs');
 const ItalianVerbsList = require('italian-verbs-dict/dist/verbs.json');
 
@@ -16,6 +20,16 @@ function Conjugator() {
     const [verb, setVerb] = useState('essere'); // Verb to be conjugated
     const [conjugation, setConjugation] = useState([]); // Conjugation result
     const [error, setError] = useState(null); // Error message
+    const [isFlipped, setIsFlipped] = useState(false);
+    const inputsRef = useRef([]);
+
+    const handleFlip = () => {
+        setIsFlipped(!isFlipped);
+    };
+
+    const reset = () => {
+        inputsRef.current.forEach(input => input.value = "");
+    }
 
     // Effect hook to update the conjugation when the verb changes
     useEffect(() => {
@@ -25,10 +39,13 @@ function Conjugator() {
         let newConjugation = [];
 
         try {
+            let word = ""
             for (let i = 0; i < persons.length; i++) {
+                // Get conjugated verb
+                word = italianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', persons[i], numbers[i])
                 newConjugation.push({
                     label: labels[i],
-                    form: italianVerbs.getConjugation(ItalianVerbsList, verb, 'PRESENTE', persons[i], numbers[i])
+                    form: word.charAt(0).toUpperCase() + word.substring(1) // Capitalize conjugated verb
                 });
             }
             setError(null);
@@ -47,6 +64,7 @@ function Conjugator() {
             italianVerbs.getConjugation(ItalianVerbsList, input.toLowerCase(), 'PRESENTE', '1', 'S');
             setError(null);
             setVerb(input.toLowerCase());
+            reset();
         } catch (err) {
             setError('Invalid verb.');
         }
@@ -54,9 +72,12 @@ function Conjugator() {
 
     // Render the Conjugator component
     return (
-        <div className="container">
+        <div className="d-flex flex-column gap-4 p-3">
             <ConjugationForm input={input} setInput={setInput} updateVerb={updateVerb} error={error} />
-            <ConjugationTable verb={verb} conjugation={conjugation} />
+            <ReactCardFlip className="d-flex" flipDirection="horizontal" isFlipped={isFlipped}>
+                <ConjugationTableForm verb={verb} conjugation={conjugation} handleFlip={handleFlip} inputsRef={inputsRef}/>
+                <ConjugationTable verb={verb} conjugation={conjugation} handleFlip={handleFlip} />
+            </ReactCardFlip>
         </div>
     );
 }
