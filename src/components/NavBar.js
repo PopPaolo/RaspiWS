@@ -9,36 +9,36 @@
 
 import { Link } from "react-router-dom";
 import LanguageIcon from "@mui/icons-material/Language";
-import {Avatar, Box, Paper} from "@mui/material";
+import { Avatar, Box, Paper } from "@mui/material";
 import "./Conjugator/Conjugator";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 function NavBar() {
-    // State variable to control the visibility of the navigation bar
-    const [showNav, setShowNav] = useState(true);
-    // State variable to store the last scroll position
-    const [scrollPos, setScrollPos] = useState(0);
-    // Threshold for scroll position to control the visibility of the navigation bar
-    const threshold = 200;
+  // State variable to control the visibility of the navigation bar
+  const [showNav, setShowNav] = useState(true);
+  // State variable to store the last scroll position
+  const [scrollPos, setScrollPos] = useState(0);
+  // Threshold for scroll position to control the visibility of the navigation bar
+  const threshold = 200;
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPos]);
-
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const currentScrollPos = window.scrollY;
     const visible =
       scrollPos > currentScrollPos || currentScrollPos < threshold;
 
     setScrollPos(currentScrollPos);
     setShowNav(visible);
-  };
+  }, [scrollPos, threshold, setScrollPos, setShowNav]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
-    <Paper
+    <Paper elevation={3}
       sx={{
         display: "flex",
         padding: "1em",
@@ -46,7 +46,6 @@ function NavBar() {
         justifyContent: "space-between",
         alignItem: "center",
         height: "5rem",
-        position: "sticky",
         top: 0,
         zIndex: 100, // to ensure the navbar is above other elements
         transform: showNav ? "translateY(0)" : "translateY(-100%)",
