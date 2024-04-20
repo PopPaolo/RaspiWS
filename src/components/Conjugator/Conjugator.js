@@ -4,8 +4,8 @@ import ConjugationForm from './ConfigurationForm';
 import ConjugationTable from './ConjugationTable';
 import ReactCardFlip from 'react-card-flip';
 import ConjugationTableForm from './ConjugationTableForm';
+import translate from 'translate';
 import "./styling/Conjugator.css";
-
 
 const italianVerbs = require('italian-verbs');
 const ItalianVerbsList = require('italian-verbs-dict/dist/verbs.json');
@@ -51,7 +51,7 @@ function Conjugator() {
             setError(null);
             setConjugation(newConjugation);
         } catch (err) {
-            setError('Invalid verb. Please enter a valid Italian verb.');
+            setError(err);
         }
     }, [verb]);
 
@@ -59,14 +59,26 @@ function Conjugator() {
      * Function to update the verb state.
      * It first checks if the input verb is valid before updating the state.
      */
-    const updateVerb = () => {
+    const updateVerb = async () => {
         try {
             italianVerbs.getConjugation(ItalianVerbsList, input.toLowerCase(), 'PRESENTE', '1', 'S');
             setError(null);
             setVerb(input.toLowerCase());
             reset();
         } catch (err) {
-            setError('Invalid verb.');
+            try {
+                let res = await translate(`to ${input.toLowerCase()}`, "it")
+                try {
+                    italianVerbs.getConjugation(ItalianVerbsList, res, 'PRESENTE', '1', 'S');
+                    setError(null);
+                    setVerb(res);
+                    reset();
+                } catch (err) {
+                    setError(err);
+                }
+            } catch (err) {
+                setError(err);
+            };
         }
     }
 
@@ -75,7 +87,7 @@ function Conjugator() {
         <div className="d-flex flex-column gap-4 p-3">
             <ConjugationForm input={input} setInput={setInput} updateVerb={updateVerb} error={error} />
             <ReactCardFlip className="d-flex" flipDirection="horizontal" isFlipped={isFlipped}>
-                <ConjugationTableForm verb={verb} conjugation={conjugation} handleFlip={handleFlip} inputsRef={inputsRef}/>
+                <ConjugationTableForm verb={verb} conjugation={conjugation} handleFlip={handleFlip} inputsRef={inputsRef} />
                 <ConjugationTable verb={verb} conjugation={conjugation} handleFlip={handleFlip} />
             </ReactCardFlip>
         </div>
