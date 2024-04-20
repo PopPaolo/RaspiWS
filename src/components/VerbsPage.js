@@ -9,8 +9,8 @@ const cardStyle = {
 
 function VerbsPage() {
     return (
-        <div className="container-sm d-flex justify-content-center" style={{paddingTop: "50px", paddingBottom: "50px"}}>
-            <div className="row justify-content-center">
+        <div className="container-sm d-flex justify-content-center p-5">
+            <div className="row justify-content-center gap-5">
                 <div className="col-12 col-sm-6 col-md-4 mb-4" style={cardStyle}>
                     <Card element={<Conjugator/>} cardTitle={"Coniuga Verbi:"}/>
                 </div>
