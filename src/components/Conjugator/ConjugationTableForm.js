@@ -48,8 +48,6 @@ function ConjugationTableForm({ verb, conjugation, handleFlip, inputsRef }) {
                                     type="text"
                                     id={index}
                                     className="form-control-sm"
-                                    color
-                                    // onReset={}
                                     ref={(e) => inputsRef.current[index] = e}
                                     onChange={(e) => {checkEntry(e, item) ? e.target.style.color = "green": e.target.style.color = "red"}}
                                 />
