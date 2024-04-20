@@ -24,10 +24,6 @@ const FlippableCard = ({ element, cardTitle, theme }) => {
       sx={{
         backgroundColor: "rgba(0,0,0,0.7)",
         userSelect: "none",
-        transition: "transform 0.3s",
-        "&:hover": {
-          transform: "scale(1.05)",
-        },
       }}>
       <CardContent>
         <CardTitle variant="h1" theme={theme}>{cardTitle}</CardTitle>
