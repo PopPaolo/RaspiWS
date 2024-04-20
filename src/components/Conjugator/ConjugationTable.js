@@ -44,7 +44,7 @@ function ConjugationTableForm({ verb, conjugation, handleFlip }) {
                                     id={index}
                                     className="form-control-sm form-control-plaintext"
                                     value={item.form}
-                                    readonly
+                                    readOnly
                                 />
                             </td>
                         </tr>
