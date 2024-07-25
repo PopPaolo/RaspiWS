@@ -14,12 +14,6 @@ function VerbsPage() {
                 <div className="col-12 col-sm-6 col-md-4 mb-4" style={cardStyle}>
                     <Card element={<Conjugator/>} cardTitle={"Coniuga Verbi:"}/>
                 </div>
-                <div className="col-12 col-sm-6 col-md-4 mb-4" style={cardStyle}>
-                    <Card element={<Conjugator/>} cardTitle={"Test Card 2"}/>
-                </div>
-                <div className="col-12 col-sm-6 col-md-4 mb-4" style={cardStyle}>
-                    <Card element={<Conjugator/>} cardTitle={"Test Card 3"}/>
-                </div>
             </div>
         </div>
     );
