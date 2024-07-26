@@ -1,7 +1,7 @@
 import { useTheme, useMediaQuery } from '@mui/material';
 import Square from './Square';
 
-import MenuIcon from "./MenuIcon.svg";
+import BoxMenu from "./BoxMenu.svg";
 
 import Rome_1 from "./media/Rome_1.jpg";
 import Rome_2 from "./media/Rome_2.jpg";
@@ -30,13 +30,13 @@ function Home() {
     <>
       <div className='position-relative'>
         <img 
-        src={MenuIcon} 
+        src={BoxMenu} 
         alt='Box Menu Icon'
         style={{
           position: 'absolute',
           width: 'auto',
-          maxHeight: "50px",
-          top: '5vh',
+          mixHeight: "100px",
+          top: '3vh',
           left: '5vh',
         }}
         ></img>
