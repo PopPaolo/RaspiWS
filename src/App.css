@@ -1,12 +1,28 @@
-.body {
-  padding: 0;
-  font-size: 20pt;
+html, body {
+    margin: 0;
+    scroll-behavior: smooth;
 }
 
-.background {
-  background-image: url(media/UofR_Tower.jpg);
-  background-size: cover;
-  background-position: center;
-  min-width: 100vw;
-  min-height: 200vh;
+@font-face {
+    font-family: island;
+    src: url(../public/IslandMoments-Regular.ttf);
+}
+.island{
+    font-family: island;
+}
+
+@font-face {
+    font-family: rock;
+    src: url(../public/RockSalt-Regular.ttf);
+}
+.rock{
+    font-family: rock;
+}
+
+@font-face {
+    font-family: nothing;
+    src: url(../public/NothingYouCouldDo-Regular.ttf);
+}
+.nothing{
+    font-family: nothing;
 }

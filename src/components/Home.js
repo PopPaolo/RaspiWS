@@ -1,50 +1,96 @@
-import { Typography, styled } from "@mui/material";
+import { useTheme, useMediaQuery } from '@mui/material';
+import Square from './Square';
 
-const Title = styled(Typography)(({ theme }) => ({
-  color: theme.palette.primary.main,
-  fontSize: '3.5rem',
-  fontWeight: 'bold',
-  textAlign: 'center',
-  margin: theme.spacing(2),
-  textShadow: '1px 1px 2px #f56800',
-}));
+import MenuIcon from "./MenuIcon.svg";
 
-const IntroParagraph = styled(Typography)(({ theme }) => ({
-  color: theme.palette.secondary.dark,
-  fontSize: '1.2rem',
-  textAlign: 'left',
-  margin: theme.spacing(2.8),
-  textShadow: '1px 1px 2px #888'
-}));
+import Rome_1 from "./media/Rome_1.jpg";
+import Rome_2 from "./media/Rome_2.jpg";
+import Rome_3 from "./media/Rome_3.jpg";
+import Rome_4 from "./media/Rome_4.jpg";
 
 function Home() {
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+
+  // Calculate the font size for the text (1/4 of the screen height)
+  const fontSizeTitle = isMatch ? '8vh' : '15vh';
+  const topMargin = isMatch ? '-2vh' : '-5vh';
+  const fontSizeAuthor = isMatch ? '3vh' : '7vh';
+  const fontSizeCredits = isMatch ? '6vh' : '7vh';
+
+
+  const positionLeftTitle = isMatch ? '4vh' : '12vh';
+  const positionTopTitle = isMatch ? '70vh' : '73vh';
+
+  const flipTitle = isMatch ? '-10deg' : '-7deg';
+
+  // Rome Metro Escalator 
+
   return (
-    <div style={{ marginTop: '3rem' }}>
-      <Title variant="h1">
-        This is the Home Page
-      </Title>
-      <IntroParagraph variant="body1">
-        Hello, my name is Paolo Pop and I am a Software Engineering student at 
-        <a
+    <>
+      <div className='position-relative'>
+        <img 
+        src={MenuIcon} 
+        alt='Box Menu Icon'
+        style={{
+          position: 'absolute',
+          width: 'auto',
+          maxHeight: "50px",
+          top: '5vh',
+          left: '5vh',
+        }}
+        ></img>
+        <Square
+          source={Rome_1}
+          altText={'Rome Mini Street'}
+          maxHeight={isMatch ? "50vh" : "60vh"}
+          top={isMatch ? "15vh" : "17vh"}
+          left={isMatch ? "7vh" : "10vh"}
+        />
+        <Square
+          source={Rome_3}
+          altText={'Rome Metro Escalator'}
+          maxHeight={isMatch ? "50vh" : "60vh"}
+          top={isMatch ? '5vh' : '5vh'}
+          left={isMatch ? "45vh" : '55vh'}
+        />
+        <Square
+          source={Rome_2}
+          altText={'Rome Church Tops'}
+          maxHeight={isMatch ? "25vh" : "35vh"}
+          top={isMatch ? '60vh' : '60vh'}
+          left={isMatch ? "50vh" : '100vh'}
+        />
+      </div>
+      <div
+        className='d-flex flex-column position-absolute'
+        style={{
+          rotate: flipTitle,
+          left: positionLeftTitle,
+          top: positionTopTitle,
+          fontFamily: 'island',
+          userSelect: 'none'
+        }}
+      >
+        <h1
+          className='my-0'
           style={{
-            display: "inline",
-            textDecoration: "none",
-            color: '#f56800'
+            fontSize: fontSizeTitle
           }}
-          href={"https://www.rit.edu"}>
-          {" "}RIT{" "}
-        </a>
-        I have a strong passion for software development and have been driven
-        toward making a career out of it since I was young. 
-        Some of the technologies I have worked with include Ruby with the help of Capybara
-        and Selenium Webdriver to automate system tests, JS with jQuery for
-        front end components, and a .NET based web application in C#, HTML and
-        SQL for DB. 
-        I am looking to make connections with other developers and
-        expand my knowledge in order to grow within the discipline and better
-        myself professionally.
-      </IntroParagraph>
-    </div>
+        >
+          Things and Places
+        </h1>
+        <h4
+          className='d-flex justify-content-end mb-0 me-md-4 me-1'
+          style={{
+            fontSize: fontSizeAuthor,
+            marginTop: topMargin
+          }}
+        >
+          by Paolo Pop
+        </h4>
+      </div>
+    </>
   );
 }
 
