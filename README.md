@@ -6,4 +6,4 @@
     taken through the years in a mostly chaotic organization.
 
 ### Current Design 
-    ![alt text](Design/ThingsAndPlaces_Home.png)
+    ![Current Design Page](ThingsAndPlaces_Home.png "Current Design")
