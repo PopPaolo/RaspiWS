@@ -6,4 +6,4 @@
     taken through the years in a mostly chaotic organization.
 
 ### Current Design 
-    ![Current Design Page](https://github.com/PopPaolo/RaspiWS/blob/new-layout/ThingsAndPlaces_Home.png)
+    ![Current Design Page](/ThingsAndPlaces_Home.png)
