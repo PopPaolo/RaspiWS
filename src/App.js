@@ -4,10 +4,11 @@
  */
 import "./App.css";
 import Home from "./components/Home";
+import Sudoku from "./components/Sudoku/Sudoku";
 
-function App({theme}) {
+function App({ theme }) {
   return (
-    <Home/>
+    <><Home /><Sudoku /></>
   );
 }
 
