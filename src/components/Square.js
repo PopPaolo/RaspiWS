@@ -11,7 +11,7 @@ function Square({ source, altText, maxHeight, top, left, isSmall=0}) {
                 border: frame,
                 boxShadow: '2px 3px 5px 0.5px rgba(0,0,0,0.5)',
                 top: top,
-                left: left
+                left: left,
             }}
         ></img>
     )

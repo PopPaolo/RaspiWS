@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.3badf7e6.css",
-    "main.js": "/static/js/main.e26a510f.js",
-    "static/js/787.38f1fd14.chunk.js": "/static/js/787.38f1fd14.chunk.js",
-    "static/media/UofR_Tower.jpg": "/static/media/UofR_Tower.3e412910a09da136425c.jpg",
+    "main.css": "/static/css/main.f4359fad.css",
+    "main.js": "/static/js/main.39ba98c0.js",
+    "static/js/453.dc61360a.chunk.js": "/static/js/453.dc61360a.chunk.js",
+    "static/media/Rome_3.jpg": "/static/media/Rome_3.ff1e408c3139353877fc.jpg",
+    "static/media/Rome_4.jpg": "/static/media/Rome_4.93c4a5a95104d01b9765.jpg",
+    "static/media/Rome_1.jpg": "/static/media/Rome_1.0cbcf4739730500e489b.jpg",
+    "static/media/Rome_2.jpg": "/static/media/Rome_2.48286daf658c4ed821be.jpg",
+    "static/media/IslandMoments-Regular.ttf": "/static/media/IslandMoments-Regular.5e2b62d2aef2a23f3850.ttf",
+    "static/media/RockSalt-Regular.ttf": "/static/media/RockSalt-Regular.95f10efb43f0ccd46405.ttf",
+    "static/media/NothingYouCouldDo-Regular.ttf": "/static/media/NothingYouCouldDo-Regular.3170b8e5d362ca787108.ttf",
     "index.html": "/index.html",
-    "main.3badf7e6.css.map": "/static/css/main.3badf7e6.css.map",
-    "main.e26a510f.js.map": "/static/js/main.e26a510f.js.map",
-    "787.38f1fd14.chunk.js.map": "/static/js/787.38f1fd14.chunk.js.map"
+    "static/media/BoxMenu.svg": "/static/media/BoxMenu.a68d9425114cd53da51ac5fa2e223090.svg",
+    "main.f4359fad.css.map": "/static/css/main.f4359fad.css.map",
+    "main.39ba98c0.js.map": "/static/js/main.39ba98c0.js.map",
+    "453.dc61360a.chunk.js.map": "/static/js/453.dc61360a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3badf7e6.css",
-    "static/js/main.e26a510f.js"
+    "static/css/main.f4359fad.css",
+    "static/js/main.39ba98c0.js"
   ]
 }

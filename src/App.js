@@ -3,11 +3,14 @@
     @author Paolo Pop
  */
 import "./App.css";
+import Footer from "./components/Footer";
 import Home from "./components/Home";
 
-function App({theme}) {
-  return (
-    <Home/>
+function App({ theme }) {
+  return (<>
+    <Home />
+    {/* <Footer /> */}
+  </>
   );
 }
 
