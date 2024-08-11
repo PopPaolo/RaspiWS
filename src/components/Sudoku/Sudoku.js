@@ -1,56 +1,31 @@
+import { useTheme, useMediaQuery } from "@mui/material";
+import Board from "./Board";
+
 function Sudoku() {
-    // Define the API endpoint
-    const apiUrl = 'https://sudoku-api.vercel.app/api/dosuku'
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-    // Function to fetch a Sudoku puzzle
-    async function fetchSudoku() {
-        try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-            const key = data.newboard.grids[0].value
-            for (let i = 0; i < 9; i++) {
-                if (i % 3 === 0 && i !== 0) {
-                    console.log('#'.repeat(21)); // Print a row of '#'
-                }
-                let row = '';
-                for (let j = 0; j < 9; j++) {
-                    row += key[i][j];
-                    if ((j + 1) % 3 === 0 && j !== 8) {
-                        row += ' / ';
-                    } else if (j !== 8) {
-                        row += ' ';
-                    }
-                }
-                console.log(row);
-            }
-            // for (let row = 0; row < 9; row++) {
-            //     for (let col = 0; col < 9; col++) {
-            //       console.log(key[row][col]);
-            //     }
-            //   }
-            return data;
-            // You can now use the data to display the Sudoku puzzle on your website
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
-        }
-    }
+  // Calculate the font size for the text (1/4 of the screen height)
+  const fontSizeTitle = isMatch ? "8vh" : "15vh";
+  const topMargin = isMatch ? "-2vh" : "-5vh";
+  const fontSizeAuthor = isMatch ? "3vh" : "7vh";
+  const fontSizeCredits = isMatch ? "6vh" : "7vh";
 
-    // Call the function to fetch the Sudoku puzzle
-    const key = fetchSudoku();
-
-
-
-
-    return (
-        <>
-            <div>
-                {/* {fetchSudoku} */}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div>
+        <h1
+          className={"position-absolute start-50 translate-middle-x"}
+          style={{
+            top: "3vh",
+          }}
+        >
+          Sudoku | 数独
+        </h1>
+        <Board />
+      </div>
+    </>
+  );
 }
 
-export default Board;
+export default Sudoku;

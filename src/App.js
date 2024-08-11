@@ -8,7 +8,10 @@ import Sudoku from "./components/Sudoku/Sudoku";
 
 function App({ theme }) {
   return (
-    <><Home /><Sudoku /></>
+    <>
+      {/*<Home />*/}
+      <Sudoku />
+    </>
   );
 }
 
