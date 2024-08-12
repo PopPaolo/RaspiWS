@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery, useTheme } from "@mui/material";
 import SmSquare from "./SmSquare";
 
-function Board({ currentNumber }) {
+const Board = ({ size, currentNumber, updateNumber }) => {
   const [sudokuGrid, setSudokuGrid] = useState([]);
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmall = size === "small";
+  const isMid = size === "medium";
 
-  // const topMargin = isMatch ? "9vh" : "13vh";
-  const boardPositionClass = isMatch ? "position-absolute top-50 translate-middle start-50" : "top-50 translate-middle-y position-absolute end-50"
+  const boardPositionClass = isSmall
+    ? "position-absolute top-50 start-50 translate-middle"
+    : isMid
+    ? "position-absolute top-50 start-50 translate-middle"
+    : "position-absolute top-50 translate-middle-y end-50";
 
   // Define the API endpoint
   const apiUrl = "https://sudoku-api.vercel.app/api/dosuku";
@@ -34,32 +36,32 @@ function Board({ currentNumber }) {
   }, []);
 
   function updateCell(row, col) {
-    const newGrid = [...sudokuGrid];
-    // newGrid[row] = [...newGrid[row]];
-    // Update the specific cell
-    newGrid[row][col] = currentNumber;
-    // Set the new grid as the state
-    setSudokuGrid(newGrid);
+    if (sudokuGrid[row][col] === 0) {
+      const newGrid = [...sudokuGrid];
+
+      newGrid[row][col] = currentNumber;
+
+      setSudokuGrid(newGrid);
+    }
   }
 
   return (
     <div className={boardPositionClass}>
-      <div className="container">
-        {sudokuGrid.map((row, rowIndex) => (
-          <div key={rowIndex} className="d-flex">
-            {row.map((num, cellIndex) => (
-              <SmSquare
-                num={num}
-                rowIndex={rowIndex}
-                cellIndex={cellIndex}
-                updateCell={updateCell}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
+      {sudokuGrid.map((row, rowIndex) => (
+        <div key={rowIndex} className="d-flex">
+          {row.map((num, cellIndex) => (
+            <SmSquare
+              size={size}
+              num={num}
+              rowIndex={rowIndex}
+              cellIndex={cellIndex}
+              updateCell={updateCell}
+            />
+          ))}
+        </div>
+      ))}
     </div>
   );
-}
+};
 
 export default Board;
