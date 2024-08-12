@@ -37,7 +37,7 @@ const SmSquare = ({ num, rowIndex, cellIndex, updateCell }) => {
           fontSize: fontSize,
         }}
       >
-        {num == 0 ? "" : num}
+        {num !== 0 ? num : ""}
       </button>
     </div>
   );

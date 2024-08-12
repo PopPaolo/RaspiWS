@@ -1,5 +1,5 @@
 export const vpSize = {
-    SMALL: "small",
+    SMALL: "small" ,
     MEMDIUM: "mediem",
     LARGE: "large"
   };

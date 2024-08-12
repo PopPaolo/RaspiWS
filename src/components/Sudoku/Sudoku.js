@@ -28,7 +28,7 @@ function Sudoku() {
                     Sudoku | 数独
                 </h1>
                 <Board currentNumber={currentNumber}/>
-                <NumberLegend />
+                {/*<NumberLegend />*/}
             </div>
         </>
     );
