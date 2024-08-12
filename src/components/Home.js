@@ -61,7 +61,6 @@ function Home() {
           top={isMatch ? "60vh" : "60vh"}
           left={isMatch ? "50vh" : "100vh"}
         />
-        <Sudoku />
       </div>
       <div
         className="d-flex flex-column position-absolute"

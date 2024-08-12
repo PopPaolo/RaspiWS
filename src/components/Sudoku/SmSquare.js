@@ -1,15 +1,14 @@
 import React from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
 
-const SmSquare = ({ num, rowIndex, cellIndex }) => {
+const SmSquare = ({ num, rowIndex, cellIndex, updateCell }) => {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
 
-  const fontSize = isMatch ? "7vw" : "5vh";
-  const boxSide = isMatch ? "9vw" : "8vh";
+  const fontSize = isMatch ? "6vw" : "3vw";
+  const boxSide = isMatch ? "9vw" : "4vw";
   const borderThickness = isMatch ? "2" : "5";
 
-  const numValue = num === 0 ? "" : num;
 
   // Function to determine the border style
   const getBorderStyle = (rowIndex, cellIndex) => {
@@ -27,8 +26,10 @@ const SmSquare = ({ num, rowIndex, cellIndex }) => {
 
   return (
     <div className={getBorderStyle(rowIndex, cellIndex)}>
-      <div
+      <button
         key={`${cellIndex}${rowIndex}`}
+        type="button"
+        onClick={() => updateCell(rowIndex, cellIndex, 7)}
         className="d-flex justify-content-center align-items-center border-dark-subtle border border-1"
         style={{
           width: boxSide,
@@ -36,18 +37,8 @@ const SmSquare = ({ num, rowIndex, cellIndex }) => {
           fontSize: fontSize,
         }}
       >
-        {numValue}
-        {/*<input*/}
-        {/*  type={"text"}*/}
-        {/*  placeholder={numValue}*/}
-        {/*  className="d-flex justify-content-center align-items-center border-dark-subtle border border-1"*/}
-        {/*  style={{*/}
-        {/*    width: boxSide,*/}
-        {/*    height: boxSide,*/}
-        {/*    fontSize: fontSize,*/}
-        {/*  }}*/}
-        {/*/>*/}
-      </div>
+        {num == 0 ? "" : num}
+      </button>
     </div>
   );
 };
