@@ -3,18 +3,32 @@
     @author Paolo Pop
 */
 
-//Style
+// ############################ STYLE ############################
+// #
 import "./App.css";
+// #
+// ###############################################################
 
-// Functionality
+
+// ######################## FUNCTIONALITY ########################
+// #
 import { useMediaQuery, useTheme } from "@mui/material";
 import { vpSize } from "./vpSize";
 import { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+// #
+// ###############################################################
 
-// Page components
+
+// ####################### APP COMPONENTS ########################
+// # Functional
+import Navbar from "./NavBar";
+// # Non Functional
 import Home from "./components/Home";
 import Sudoku from "./components/Sudoku/Sudoku";
 import Conjugator from "./components/Conjugator/Conjugator";
+// #
+// ###############################################################
 
 function App() {
   // Set up viewport size tracking
@@ -46,14 +60,14 @@ function App() {
   }, [isSmall, isMed]);
 
   return (
-    <>
-      <div>
-        <p>{`Viewport is ${viewportSize}`}</p>
-      </div>
-      {/*<Home />*/}
-      <Sudoku size={viewportSize} />
-      {/*<Conjugator/>*/}
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sudoku" element={<Sudoku />} />
+        {/* <Route path="/conjugator" element={<Conjugator />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
