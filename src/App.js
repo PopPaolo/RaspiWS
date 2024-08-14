@@ -63,8 +63,8 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sudoku" element={<Sudoku />} />
+        <Route path="/" element={<Home size={viewportSize}/>} />
+        <Route path="/sudoku" element={<Sudoku size={viewportSize} />} />
         {/* <Route path="/conjugator" element={<Conjugator />} /> */}
       </Routes>
     </BrowserRouter>
