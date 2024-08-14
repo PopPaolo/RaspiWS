@@ -5,6 +5,7 @@ import NumberLegend from "./NumberLegend";
 
 function Sudoku({ size }) {
   const [currentNumber, setCurrentNumber] = useState(0);
+  const [selectedCell, setSelectedCell] = useState([])
 
   return (
     <>
