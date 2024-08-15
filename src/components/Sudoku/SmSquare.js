@@ -1,6 +1,6 @@
 import React from "react";
 
-const SmSquare = ({ size, num, rowIndex, cellIndex, updateCell }) => {
+const SmSquare = ({ size, num, rowIndex, colIndex, updateCell }) => {
   const isSmall = size === "small";
   const isMid = size === "medium";
 
@@ -8,31 +8,29 @@ const SmSquare = ({ size, num, rowIndex, cellIndex, updateCell }) => {
   const boxSide = isSmall ? "8vw" : isMid ? "7vw" : "4vw";
 
   // Function to determine the border style
-  const getBorderStyle = (rowIndex, cellIndex) => {
+  const getBorderStyle = () => {
     let classes = "";
-    if (rowIndex % 3 === 0) classes += ` border-top border-4 border-black`;
-    if (cellIndex % 3 === 0) classes += ` border-start border-4 border-black`;
-    if ((rowIndex + 1) % 9 === 0)
-      classes += ` border-bottom border-4 border-black`;
-    if ((cellIndex + 1) % 9 === 0)
-      classes += ` border-end border-4 border-black`;
+    if (rowIndex === 2 || rowIndex === 5) classes += ` border-3 border-end border-black`;
+    if (colIndex === 2 || colIndex === 5) classes += ` border-3 border-bottom border-black`;
+
     return classes;
   };
 
   return (
-    <div className={getBorderStyle(rowIndex, cellIndex)}>
+    <div className={getBorderStyle()}>
       <button
-        key={cellIndex}
+        key={colIndex}
         type="button"
-        onClick={() => updateCell(rowIndex, cellIndex)}
-        className="d-flex justify-content-center align-items-center border-dark-subtle border border-1"
+        onClick={() => updateCell(rowIndex, colIndex)}
+        className="d-flex justify-content-center align-items-center rounded-2 border-2 border-dark-subtle"
         style={{
           width: boxSide,
           height: boxSide,
           fontSize: numFontSize,
+          borderStyle: "solid"
         }}
       >
-        {num === 0 ? "" : num}
+        {num === "0" ? "" : num}
       </button>
     </div>
   );
