@@ -1,6 +1,6 @@
 /*
-    This is the file that contains the logic 
-    and design for the navigation bar.
+    Home.js defines the design 
+    and functionality for the home page.
     @author Paolo Pop
 */
 
