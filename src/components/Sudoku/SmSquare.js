@@ -35,7 +35,7 @@ const SmSquare = ({ size, num, rowIndex, colIndex, updateCell }) => {
           borderStyle: "solid"
         }}
       >
-        {num === "0" ? "" : num}
+        {num}
       </button>
     </div>
   );
