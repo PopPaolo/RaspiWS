@@ -1,3 +1,8 @@
+/*
+    Sudoku.js defines the design and 
+    functionality for the Sudoku game and page.
+    @author Paolo Pop
+*/
 import { useState } from "react";
 
 import Board from "./Board";
@@ -13,16 +18,17 @@ function Sudoku({ size }) {
   const isMid = size === "medium";
 
   return (
-    <>
-      <div>
-        <h1
-          className={"position-absolute start-50 translate-middle-x"}
-          style={{
-            top: "2vh",
-          }}
-        >
-          Sudoku | 数独
-        </h1>
+    // Trying to make a flexbox with the title div and the game components
+    <div className="d-flex flex-column gap-0">
+      <div
+        className={"fw-bold fs-1 position-absolute start-50 translate-middle-x"}
+      >
+        {" Sudoku | 数独 "}
+      </div>
+      <div className={
+        "d-flex flex-column flex-lg-row gap-5 align-items-center " +
+        "position-absolute top-50 start-50 translate-middle"}
+      >
         <Board
           size={size}
           currentNumber={currentNumber}
@@ -30,7 +36,7 @@ function Sudoku({ size }) {
         />
         <NumberLegend size={size} updateNumber={setCurrentNumber} />
       </div>
-    </>
+    </div>
   );
 }
 
