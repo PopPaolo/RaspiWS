@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card.js";
-import Conjugator from "./Conjugator/Conjugator.js";
+import Conjugator from "./Conjugator.js";
 
 const cardStyle = {
     width: '350px',
@@ -13,12 +13,6 @@ function VerbsPage() {
             <div className="row justify-content-center gap-5">
                 <div className="col-12 col-sm-6 col-md-4 mb-4" style={cardStyle}>
                     <Card element={<Conjugator/>} cardTitle={"Coniuga Verbi:"}/>
-                </div>
-                <div className="col-12 col-sm-6 col-md-4 mb-4" style={cardStyle}>
-                    <Card element={<Conjugator/>} cardTitle={"Test Card 2"}/>
-                </div>
-                <div className="col-12 col-sm-6 col-md-4 mb-4" style={cardStyle}>
-                    <Card element={<Conjugator/>} cardTitle={"Test Card 3"}/>
                 </div>
             </div>
         </div>
