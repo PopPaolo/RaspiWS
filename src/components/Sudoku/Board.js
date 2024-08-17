@@ -6,74 +6,76 @@ const Board = ({ size, currentNumber, updateNumber }) => {
   const isSmall = size === "small";
   const isMid = size === "medium";
 
-  const boardPositionClass = isSmall
-    ? "position-absolute top-50 start-50 translate-middle"
-    : isMid
-      ? "position-absolute top-50 start-50 translate-middle"
-      : "position-absolute top-50 translate-middle-y end-50";
-
   // Define the API endpoint
   // const apiUrl = "https://sudoku-api.vercel.app/api/dosuku";
   const apiUrl = "https://www.youdosudoku.com/api/";
 
-  // Function to fetch a Sudoku puzzle 
-  async function fetchSudoku() {
-    try {
-      const response = await fetch("https://youdosudoku.com/api/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          difficulty: "medium", // "easy", "medium", or "hard" (defaults to "easy")
-          solution: true, // true or false (defaults to true)
-          array: false // true or false (defaults to false)
-        })
-      })
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data)
-        // const key = data.newboard.grids[0].value;
-        // setSudokuGrid(key);
-      } else {
-        throw new Error("Network response was not ok");
-      }
-    } catch (error) {
-      console.error("There was a problem with the fetch operation:", error);
+  // Turn a passed string, with length of 81, into a array[9][9]
+  function makeArray(key) {
+    const sudokuArray = [];
+    for (let i = 0; i < 9; i++) {
+      sudokuArray.push(key.slice(i * 9, (i + 1) * 9).split(''));
     }
   }
 
-
+  // Fetch a Sudoku puzzle 
   useEffect(() => {
-    fetchSudoku();
+    fetch(apiUrl, {
+      method: "POST",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+      body: JSON.stringify({
+        difficulty: "medium", // "easy", "medium", or "hard" (defaults to "easy")
+        solution: true, // true or false (defaults to true)
+        array: true // true or false (defaults to false)
+      })
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`)
+      }
+      return response.json()
+    }).then(data => {
+      // console.log(makeArray(data.puzzle))
+      setSudokuGrid(makeArray(data.puzzle))
+    }
+    ).catch(error =>
+      console.log(error)
+    )
   }, []);
 
-  function updateCell(row, col) {
-    if (sudokuGrid[row][col] === 0) {
+  function updateCell(rowIndex, colIndex) {
+    if (sudokuGrid[rowIndex][colIndex] === '0') {
       // Update the selected cell with the currently selected number
-      const newGrid = [...sudokuGrid];
-      newGrid[row][col] = currentNumber;
+      let newGrid = [...sudokuGrid];
+      newGrid[rowIndex][colIndex] = currentNumber;
       setSudokuGrid(newGrid);
 
-      updateNumber(0);
+      // updateNumber("0"); 
     }
   }
 
   return (
-    <div className={boardPositionClass}>
-      {/* {sudokuGrid.map((row, rowIndex) => (
-        <div key={rowIndex} className="d-flex">
-          {row.map((num, cellIndex) => (
-            <SmSquare
-              size={size}
-              num={num}
-              rowIndex={rowIndex}
-              cellIndex={cellIndex}
-              updateCell={updateCell}
-            />
-          ))}
-        </div>
-      ))} */}
+    <div className={"d-flex border-3 border-dark bg-dark rounded-2 p-2"}>
+      {
+        sudokuGrid.map(
+          (row, rowIndex) => (
+            <div key={rowIndex}>
+              {
+                row.map(
+                  (num, colIndex) => (
+                    <SmSquare
+                      size={size}
+                      num={num}
+                      rowIndex={rowIndex}
+                      colIndex={colIndex}
+                      updateCell={updateCell}
+                    />
+                  ))
+              }
+            </div>
+          ))
+      }
     </div>
   );
 }
