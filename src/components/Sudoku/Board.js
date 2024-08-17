@@ -5,13 +5,6 @@
 */
 
 
-// ######################## FUNCTIONALITY ########################
-// #
-import React, { useState, useEffect } from "react";
-// #
-// ###############################################################
-
-
 // ####################### APP COMPONENTS ########################
 // # Functional
 import SmSquare from "./SmSquare";
@@ -19,48 +12,35 @@ import SmSquare from "./SmSquare";
 // ###############################################################
 
 
+// ######################## FUNCTIONALITY ########################
+// #
+import React, { useState, useEffect } from "react";
+const sudoku = require("sudoku");
+// #
+// ###############################################################
+
+
 const Board = ({ size, currentNumber, updateNumber }) => {
   const [sudokuGrid, setSudokuGrid] = useState([]);
+  const [solvedGrid, setSolsolvedGrid] = useState([]);
   const isSmall = size === "small";
   const isMid = size === "medium";
-
-  // Define the API endpoint
-  // const apiUrl = "https://sudoku-api.vercel.app/api/dosuku";
-  const apiUrl = "https://www.youdosudoku.com/api";
 
   // Turn a passed string, with length of 81, into a array[9][9]
   function makeArray(key) {
     const sudokuArray = [];
     for (let i = 0; i < 9; i++) {
-      sudokuArray.push(key.slice(i * 9, (i + 1) * 9).split(''));
+      let row = key.slice(i * 9, i * 9 + 9).map(value => value !== null ? value + 1 : value);
+      sudokuArray.push(row);
     }
     return sudokuArray;
   }
 
-  // Fetch a Sudoku puzzle 
+  // Generate a Sudoku puzzle
   useEffect(() => {
-    fetch(apiUrl, {
-      method: "POST",
-      // headers: {
-      //   "Content-Type": "application/json",
-      // },
-      body: JSON.stringify({
-        difficulty: "medium", // "easy", "medium", or "hard" (defaults to "easy")
-        solution: true, // true or false (defaults to true)
-        array: true // true or false (defaults to false)
-      })
-    }).then(response => {
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`)
-      }
-      return response.json()
-    }).then(data => {
-      // console.log(makeArray(data.puzzle))
-      setSudokuGrid(makeArray(data.puzzle))
-    }
-    ).catch(error =>
-      console.log(error)
-    )
+    const puzzle = sudoku.makepuzzle();
+    setSolsolvedGrid(makeArray(sudoku.solvepuzzle(puzzle)));
+    setSudokuGrid(makeArray(puzzle));
   }, []);
 
   function updateCell(rowIndex, colIndex) {
@@ -70,7 +50,7 @@ const Board = ({ size, currentNumber, updateNumber }) => {
       newGrid[rowIndex][colIndex] = currentNumber;
       setSudokuGrid(newGrid);
 
-      // updateNumber("0"); 
+      // updateNumber("0");
     }
   }
 
@@ -84,6 +64,7 @@ const Board = ({ size, currentNumber, updateNumber }) => {
                 row.map(
                   (num, colIndex) => (
                     <SmSquare
+                        key={`${rowIndex}-${colIndex}`}
                       size={size}
                       num={num}
                       rowIndex={rowIndex}
