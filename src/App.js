@@ -12,7 +12,7 @@ import "./App.css";
 
 // ######################## FUNCTIONALITY ########################
 // #
-import { useMediaQuery, useTheme } from "@mui/material";
+import { useMediaQuery, useTheme, createTheme } from "@mui/material";
 import { vpSize } from "./vpSize";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
@@ -30,9 +30,16 @@ import Conjugator from "./components/Conjugator/Conjugator";
 // #
 // ###############################################################
 
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      md: 768,
+      lg: 992,
+    },
+  },
+});
 function App() {
   // Set up viewport size tracking
-  const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
   const isMed = useMediaQuery(theme.breakpoints.between("md", "lg"));
 
@@ -63,7 +70,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home size={viewportSize}/>} />
+        <Route path="/" element={<Home size={viewportSize} />} />
         <Route path="/sudoku" element={<Sudoku size={viewportSize} />} />
         {/* <Route path="/conjugator" element={<Conjugator />} /> */}
       </Routes>
