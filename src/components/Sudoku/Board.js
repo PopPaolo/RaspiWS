@@ -1,5 +1,23 @@
+/*
+    Board.js defines the design and functionality 
+    for the sudoku board used in Sudoku.js.
+    @author Paolo Pop
+*/
+
+
+// ######################## FUNCTIONALITY ########################
+// #
 import React, { useState, useEffect } from "react";
+// #
+// ###############################################################
+
+
+// ####################### APP COMPONENTS ########################
+// # Functional
 import SmSquare from "./SmSquare";
+// #
+// ###############################################################
+
 
 const Board = ({ size, currentNumber, updateNumber }) => {
   const [sudokuGrid, setSudokuGrid] = useState([]);
@@ -8,7 +26,7 @@ const Board = ({ size, currentNumber, updateNumber }) => {
 
   // Define the API endpoint
   // const apiUrl = "https://sudoku-api.vercel.app/api/dosuku";
-  const apiUrl = "https://www.youdosudoku.com/api/";
+  const apiUrl = "https://www.youdosudoku.com/api";
 
   // Turn a passed string, with length of 81, into a array[9][9]
   function makeArray(key) {
@@ -16,6 +34,7 @@ const Board = ({ size, currentNumber, updateNumber }) => {
     for (let i = 0; i < 9; i++) {
       sudokuArray.push(key.slice(i * 9, (i + 1) * 9).split(''));
     }
+    return sudokuArray;
   }
 
   // Fetch a Sudoku puzzle 
@@ -79,6 +98,5 @@ const Board = ({ size, currentNumber, updateNumber }) => {
     </div>
   );
 }
-
 
 export default Board;
