@@ -9,24 +9,22 @@ import "./App.css";
 // #
 // ###############################################################
 
-
 // ######################## FUNCTIONALITY ########################
 // #
 import { useMediaQuery, useTheme, createTheme } from "@mui/material";
 import { vpSize } from "./vpSize";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 // #
 // ###############################################################
-
 
 // ####################### APP COMPONENTS ########################
 // # Functional
 import Navbar from "./NavBar";
-// # Non Functional
-import Home from "./components/Home";
+// # Non-Functional
+import Home from "./components/Home/Home";
 import Sudoku from "./components/Sudoku/Sudoku";
-import Conjugator from "./components/Conjugator/Conjugator";
+import VerbsPage from "./components/Conjugator/VerbsPage";
 // #
 // ###############################################################
 
@@ -72,7 +70,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home size={viewportSize} />} />
         <Route path="/sudoku" element={<Sudoku size={viewportSize} />} />
-        {/* <Route path="/conjugator" element={<Conjugator />} /> */}
+        <Route path="/conjugator" element={<VerbsPage />} />
       </Routes>
     </BrowserRouter>
   );
