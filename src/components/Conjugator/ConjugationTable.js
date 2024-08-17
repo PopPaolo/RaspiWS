@@ -6,7 +6,14 @@ function ConjugationTableForm({ verb, conjugation, handleFlip }) {
     return (
         <div style={{ userSelect: "none" }}>
             <table className="table table-striped border border-3 border-color-black">
-                <thead>
+                <thead
+                style={{
+                    backgroundColor:"#fff",
+                    borderRadius: "5px",
+                    overflow: "hidden",
+                    boxShadow: "4px 4px 5px rgba(200, 200, 200, 0.4)",
+                    padding: "4px",
+                }}>
                     <tr>
                         <th
                             colSpan="2"
