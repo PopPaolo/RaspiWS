@@ -6,29 +6,31 @@
 
 // ######################## FUNCTIONALITY ########################
 // #
-import { BrowserRouter, Link } from 'react-router-dom';
-import { vpSize } from "./vpSize";
+import { BrowserRouter, Link } from "react-router-dom"
+import { vpSize } from "./vpSize"
 // #
 // ###############################################################
 
-
 // ####################### APP COMPONENTS ########################
 // #
-import Home from "./components/Home";
-import Sudoku from "./components/Sudoku/Sudoku";
-import Conjugator from "./components/Conjugator/Conjugator";
+import Home from "./components/Home/Home"
+import Sudoku from "./components/Sudoku/Sudoku"
+import Conjugator from "./components/Conjugator/Conjugator"
 // #
 // ###############################################################
 
 function Navbar() {
-
-    return (
-        <div>
-            <Link to="/">Home</Link>
-            <Link to="/sudoku">Sudoku</Link>
-            {/* <Link to="/conjugator">Conjugator</Link> */}
-        </div>
-    )
+  return (
+    <div className={"d-inline-flex flex-row flex-lg-column gap-4 m-4 fs-1"}>
+      <Link to="/">
+        <i className="bi bi-house-fill text-black"></i>
+      </Link>
+      <Link to="/sudoku">
+        <i className="bi bi-dice-3-fill text-black"></i>
+      </Link>
+      {/*<Link to="/conjugator">Conjugator</Link>*/}
+    </div>
+  )
 }
 
-export default Navbar;
+export default Navbar
