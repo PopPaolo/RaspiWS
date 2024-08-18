@@ -27,7 +27,7 @@ const SmSquare = ({ size, num, rowIndex, colIndex, updateCell }) => {
         key={colIndex}
         type="button"
         onClick={() => updateCell(rowIndex, colIndex)}
-        className="d-flex justify-content-center align-items-center rounded-2 border-1 border-dark-subtle fw-medium"
+        className="d-flex justify-content-center align-items-center rounded-1 border-1 border-dark-subtle fw-medium"
         style={{
           width: boxSide,
           height: boxSide,
