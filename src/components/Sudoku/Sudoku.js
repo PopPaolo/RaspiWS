@@ -25,7 +25,7 @@ function Sudoku({ size }) {
 
   return (
     <div className="d-flex flex-column gap-0">
-      <div className={"fw-bold fs-1 position-absolute start-50 translate-middle-x"}>{" Sudoku | 数独 "}</div>
+      <div className={"fw-bold fs-1 position-absolute start-50 top-0 translate-middle-x"}>{" Sudoku | 数独 "}</div>
       <div
         className={
           "d-flex flex-column flex-lg-row gap-2 gap-lg-3 align-items-end " +
