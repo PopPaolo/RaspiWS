@@ -50,3 +50,14 @@
 #### Backlog:
 
 --
+
+# Version Backlog:
+### v0.8:
+    Will have a responsive navbar
+
+### v0.9:
+    Will have a responsive footer
+
+### v1.0:
+    Will have a finished home page and
+    a polished sudoku page with current functionality.
