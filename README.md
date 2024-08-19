@@ -1,5 +1,9 @@
 # Paolo Pop
 
----
+## Home
+    The main page of my website will feature a very 
+    simplistic display of some of the photos I have 
+    taken through the years in a mostly chaotic organization.
 
-## Raspberry Pi WebSite
+### Current Design 
+    ![CurrentDesignPage](/ThingsAndPlaces_Home.png)

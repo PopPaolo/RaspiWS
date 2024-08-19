@@ -49,8 +49,6 @@ function ConjugationForm({ input, setInput, updateVerb, error }) {
                 error={Boolean(error)}
             />
             <Button
-                variant="outlined"
-                color="tertiary"
                 startIcon={<ArrowOutward />}
                 onClick={updateVerb}
             >Go</Button>
