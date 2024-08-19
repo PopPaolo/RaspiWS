@@ -2,7 +2,7 @@ function Square({ source, altText, maxHeight, top, left, isSmall=0}) {
     const frame = isSmall ? '7px ridge #eee' : '10px ridge #eee';
     return (
         <img
-            className='position-absolute'
+            className='position-relative'
             src={source}
             alt={altText}
             style={{
