@@ -4,18 +4,9 @@
     @author Paolo Pop
 */
 
-// ######################## FUNCTIONALITY ########################
-// #
-import { useTheme, useMediaQuery } from "@mui/material";
-import React, { useEffect } from "react";
-// #
-// ###############################################################
-
 // ####################### APP COMPONENTS ########################
 // #
 import Square from "./Square";
-// # Icon
-import P_Icon from "../P_Icon.svg";
 // # Media
 import Rome_1 from "../media/Rome_1.jpg";
 import Rome_2 from "../media/Rome_2.jpg";
