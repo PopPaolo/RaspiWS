@@ -11,16 +11,16 @@ import "./App.css";
 
 // ######################## FUNCTIONALITY ########################
 // #
-import { useMediaQuery, useTheme, createTheme } from "@mui/material";
+import { useMediaQuery, createTheme } from "@mui/material";
 import { vpSize } from "./vpSize";
 import { useState, useEffect, useRef } from "react";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // #
 // ###############################################################
 
 // ####################### APP COMPONENTS ########################
 // # Functional
-import Navbar from "./NavBar";
+import Navbar from "./components/NavBar";
 // # Non-Functional
 import Home from "./components/Home/Home";
 import Sudoku from "./components/Sudoku/Sudoku";
@@ -75,7 +75,7 @@ function App() {
     };
 
     const scrollContainer = scrollContainerRef.current;
-    scrollContainer.addEventListener("wheel", handleScroll, { passive: false });
+    scrollContainer.addEventListener("wheel", handleScroll);
 
     return () => {
       scrollContainer.removeEventListener("wheel", handleScroll);
