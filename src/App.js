@@ -13,7 +13,7 @@ import "./App.css";
 // #
 import { useMediaQuery, useTheme, createTheme } from "@mui/material";
 import { vpSize } from "./vpSize";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 // #
 // ###############################################################
@@ -40,6 +40,7 @@ function App() {
   // Set up viewport size tracking
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
   const isMed = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const scrollContainerRef = useRef(null);
 
   // State to track the viewport size
   const [viewportSize, setViewportSize] = useState(
@@ -64,14 +65,46 @@ function App() {
     };
   }, [isSmall, isMed]);
 
+  // Effect to scroll to the right
+  useEffect(() => {
+    const handleScroll = (event) => {
+      if (event.deltaY !== 0) {
+        scrollContainerRef.current.scrollLeft += event.deltaY;
+        event.preventDefault();
+      }
+    };
+
+    const scrollContainer = scrollContainerRef.current;
+    scrollContainer.addEventListener("wheel", handleScroll, { passive: false });
+
+    return () => {
+      scrollContainer.removeEventListener("wheel", handleScroll);
+    };
+  }, []);
+
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home size={viewportSize} />} />
-        <Route path="/sudoku" element={<Sudoku size={viewportSize} />} />
-        <Route path="/conjugator" element={<VerbsPage />} />
-      </Routes>
+      <div
+        className="d-flex overflow-hidden"
+        ref={scrollContainerRef}
+        style={{
+          height: "100vh",
+          whiteSpace: "nowrap",
+          maxHeight: "-webkit-fill-available",
+        }}>
+        <Navbar />
+        <div
+          // className="bg-dark-subtle"
+          style={{
+            marginLeft: "5vw"
+          }} >
+          <Routes>
+            <Route path="/" element={<Home size={viewportSize} />} />
+            <Route path="/sudoku" element={<Sudoku size={viewportSize} />} />
+            <Route path="/conjugator" element={<VerbsPage />} />
+          </Routes>
+        </div >
+      </div>
     </BrowserRouter>
   );
 }
