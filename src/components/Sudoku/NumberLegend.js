@@ -17,8 +17,8 @@ function NumberLegend({ size, updateNumber, editSymbols, symbols, setSymbols }) 
   const isSmall = size === "small"
   const isMid = size === "medium"
 
-  const fontSize = isSmall ? "6vw" : isMid ? "5vw" : "7vh"
-  const boxSide = isSmall ? "13vw" : isMid ? "7vw" : "8vh"
+  const fontSize = isSmall ? "6vw" : isMid ? "5vw" : "9vh"
+  const boxSide = isSmall ? "13vw" : isMid ? "7vw" : "12vh"
 
   function NumBlock({ num, rowIndex, colIndex }) {
     const isSelected = JSON.stringify(selectedIndex) === JSON.stringify([rowIndex, colIndex])
