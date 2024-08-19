@@ -7,7 +7,7 @@
 // ######################## FUNCTIONALITY ########################
 // #
 import { useTheme, useMediaQuery } from "@mui/material";
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 // #
 // ###############################################################
 
@@ -29,125 +29,69 @@ import Positano_1 from "../media/Positano_1.jpg";
 function Home({ size }) {
   const isSmall = size === "small";
   const isMid = size === "medium";
-  const scrollContainerRef = useRef(null);
-
-  const fontSizeTitle = isSmall ? "15vw" : isMid ? "14vh" : "14vh";
-  const topMarginAuthor = isSmall ? "-2vw" : isMid ? "-5vh" : "-5vh";
-  const fontSizeAuthor = isSmall ? "10vw" : isMid ? "10vh" : "10vh";
-  const positionLeftTitle = isSmall ? "10vh" : isMid ? "17vh" : "17vh";
-  const positionTopTitle = isSmall ? "70vh" : isMid ? "70vh" : "70vh";
-
-  const flipTitle = isSmall ? "-10deg" : isMid ? "-5deg" : "-5deg";
-
-  useEffect(() => {
-    const handleScroll = (event) => {
-      if (event.deltaY !== 0) {
-        scrollContainerRef.current.scrollLeft += event.deltaY;
-        event.preventDefault();
-      }
-    };
-
-    const scrollContainer = scrollContainerRef.current;
-    scrollContainer.addEventListener("wheel", handleScroll);
-
-    return () => {
-      scrollContainer.removeEventListener("wheel", handleScroll);
-    };
-  }, []);
 
   return (
-    <div
-      className="d-flex overflow-hidden"
-      ref={scrollContainerRef}
-      style={{
-        height: "100vh",
-        whiteSpace: "nowrap",
-        maxHeight: "-webkit-fill-available",
-      }}
-    >
-      <div className="position-relative">
-        {/*<img*/}
-        {/*  src={P_Icon}*/}
-        {/*  alt='Box Menu Icon'*/}
-        {/*  style={{*/}
-        {/*    position: 'absolute',*/}
-        {/*    width: 'auto',*/}
-        {/*    minHeight: "5vh",*/}
-        {/*    top: '5vh',*/}
-        {/*    left: '5vh',*/}
-        {/*    transition: "transform 0.4s ease-in-out"*/}
-        {/*  }}*/}
-        {/*  onMouseEnter={(e) => {*/}
-        {/*    e.target.style.transform = "rotate(450deg)";*/}
-        {/*  }}*/}
-        {/*  onMouseLeave={(e) => {*/}
-        {/*    e.target.style.transform = "rotate(0deg)";*/}
-        {/*  }}*/}
-        {/*></img>*/}
-        <Square
-          source={Florence_1}
-          altText={"Florence Tower Close Up"}
-          maxHeight={isSmall ? "50vh" : isMid ? "60vh" : "60vh"}
-          top={isSmall ? "15vw" : isMid ? "7vh" : "7vh"}
-          left={isSmall ? "20vh" : isMid ? "25vh" : "25vh"}
-        />
-        {/*<Square*/}
-        {/*  source={Positano_1}*/}
-        {/*  altText={"Florence Tower Far"}*/}
-        {/*  maxHeight={isSmall ? "50vh" : isMid ? "70vh" : "70vh"}*/}
-        {/*  top={isSmall ? "15vw" : isMid ? "20vh" : "20vh"}*/}
-        {/*  left={isSmall ? "7vh" : isMid ? "13vh" : "13vh"}*/}
-        {/*/>*/}
-        {/*<Square*/}
-        {/*  source={Rome_1}*/}
-        {/*  altText={"Rome Mini Street"}*/}
-        {/*  maxHeight={isSmall ? "50vh" : isMid ? "75vh" : "75vh"}*/}
-        {/*  top={isSmall ? "15vw" : isMid ? "10vh" : "10vh"}*/}
-        {/*  left={isSmall ? "7vh" : isMid ? "19vh" : "19vh"}*/}
-        {/*/>*/}
-        {/* <Square
-          source={Rome_3}
-          altText={'Rome Metro Escalator'}
-          maxHeight={isMatch ? "50vh" : "60vh"}
-          top={isMatch ? '5vh' : '5vh'}
-          left={isMatch ? "45vh" : '55vh'}
-        />
+    <div className="position-relative">
+      <Square
+        source={Florence_1}
+        altText={"Florence Tower Close Up"}
+        maxHeight={isSmall ? "50vh" : isMid ? "60vh" : "60vh"}
+        top={isSmall ? "15vw" : isMid ? "7vh" : "0vh"}
+        left={isSmall ? "20vh" : isMid ? "25vh" : "10vh"}
+        isSmall={isSmall}
+      />
+      <Square
+        source={Positano_1}
+        altText={"Florence Tower Far"}
+        maxHeight={isSmall ? "50vh" : isMid ? "70vh" : "70vh"}
+        top={isSmall ? "15vw" : isMid ? "20vh" : "20vh"}
+        left={isSmall ? "7vh" : isMid ? "13vh" : "20vh"}
+        isSmall={isSmall}
+      />
+      <Square
+        source={Rome_1}
+        altText={"Rome Mini Street"}
+        maxHeight={isSmall ? "50vh" : isMid ? "75vh" : "75vh"}
+        top={isSmall ? "15vw" : isMid ? "10vh" : "10vh"}
+        left={isSmall ? "7vh" : isMid ? "19vh" : "30vh"}
+        isSmall={isSmall}
+      />
         <Square
           source={Rome_2}
           altText={'Rome Church Tops'}
-          maxHeight={isMatch ? "25vh" : "45vh"}
-          top={isMatch ? '60vh' : '40vh'}
-          left={isMatch ? "50vh" : '100vh'}
-        /> */}
+          maxHeight={isSmall ? "50vh" : isMid ? "75vh" : "65vh"}
+          top={isSmall ? "50vh" : isMid ? "75vh" : "20vh"}
+          left={isSmall ? "50vh" : isMid ? "75vh" : "40vh"}
+        />
+
+      <div
+        className="d-flex flex-column position-absolute"
+        style={{
+          rotate: isSmall ? "-10deg" : isMid ? "-5deg" : "-5deg",
+          left: isSmall ? "10vh" : isMid ? "17vh" : "17vh",
+          top: isSmall ? "70vh" : isMid ? "70vh" : "70vh",
+          fontFamily: "island",
+          userSelect: "none",
+        }}
+      >
+        <h1
+          className="my-0"
+          style={{
+            fontSize: isSmall ? "15vw" : isMid ? "14vh" : "14vh",
+          }}
+        >
+          Things and Places
+        </h1>
+        <h4
+          className="d-flex justify-content-end mb-0 me-md-4 me-1"
+          style={{
+            fontSize: isSmall ? "10vw" : isMid ? "10vh" : "10vh",
+            marginTop: isSmall ? "-2vw" : isMid ? "-5vh" : "-5vh",
+          }}
+        >
+          by Paolo Pop
+        </h4>
       </div>
-      {/*<div*/}
-      {/*  className="d-flex flex-column position-relative"*/}
-      {/*  style={{*/}
-      {/*    rotate: flipTitle,*/}
-      {/*    left: positionLeftTitle,*/}
-      {/*    top: positionTopTitle,*/}
-      {/*    fontFamily: "island",*/}
-      {/*    userSelect: "none",*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  <h1*/}
-      {/*    className="my-0"*/}
-      {/*    style={{*/}
-      {/*      fontSize: fontSizeTitle,*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    Things and Places*/}
-      {/*  </h1>*/}
-      {/*  <h4*/}
-      {/*    className="d-flex justify-content-end mb-0 me-md-4 me-1"*/}
-      {/*    style={{*/}
-      {/*      fontSize: fontSizeAuthor,*/}
-      {/*      marginTop: topMarginAuthor,*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    by Paolo Pop*/}
-      {/*  </h4>*/}
-      {/*</div>*/}
     </div>
   );
 }
